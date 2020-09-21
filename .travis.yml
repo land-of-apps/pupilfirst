@@ -1,0 +1,17 @@
+# Turn on validation, so we can use import:
+version: ~> 1.0
+
+services:
+- postgresql
+
+env:
+- SPEC_USER_TIME_ZONE=UTC
+
+before_script:
+- nvm use 13
+- bundle exec rake db:schema:load
+- bundle exec rails assets:precompile
+- bundle exec rails assets:clean
+
+script:
+- bundle exec rspec --format progress
