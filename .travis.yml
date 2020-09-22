@@ -3,12 +3,12 @@ version: ~> 1.0
 
 services:
 - postgresql
-- nvm
 
 env:
 - SPEC_USER_TIME_ZONE=UTC
 
 before_script:
+- nvm install 13
 - nvm use 13
 - bundle exec rake db:schema:load
 - bundle exec rails assets:precompile
