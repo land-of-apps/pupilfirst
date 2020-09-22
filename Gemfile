@@ -1,6 +1,8 @@
-ruby '2.7.1'
+#ruby '2.7.1'
 
 source 'https://rubygems.org'
+
+gem 'appmap', github: 'applandinc/appmap-ruby', branch: 'master'
 
 # Ruby on Rails. http://rubyonrails.org
 gem 'rails', '~> 6.0.3', '>= 6.0.3.2'

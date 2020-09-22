@@ -1,6 +1,9 @@
 # Turn on validation, so we can use import:
 version: ~> 1.0
 
+import:
+- land-of-apps/land-of-apps:travis/ruby-imports.yml
+
 services:
 - postgresql
 
@@ -15,4 +18,4 @@ before_script:
 - bundle exec rails assets:clean
 
 script:
-- bundle exec rspec --format progress
+- APPMAP=true bundle exec rspec --format progress

@@ -1,4 +1,16 @@
 GIT
+  remote: https://github.com/applandinc/appmap-ruby.git
+  revision: 2298f931d550ebd330c5c3af25f6620b3ad346d6
+  branch: master
+  specs:
+    appmap (0.34.4)
+      activesupport
+      faraday
+      gli
+      parser
+      rack
+
+GIT
   remote: https://github.com/mahesh-krishnakumar/bootstrap4-kaminari-views.git
   revision: 5ad07179ca22db5d17684f21096bcd0fddc6e289
   specs:
@@ -300,6 +312,7 @@ GEM
       rails (>= 4.0.0)
     get_process_mem (0.2.5)
       ffi (~> 1.0)
+    gli (2.19.2)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     graphiql-rails (1.7.0)
@@ -738,6 +751,7 @@ DEPENDENCIES
   activerecord-precounter (~> 0.3)
   acts-as-taggable-on!
   addressable (~> 2.5)
+  appmap!
   attribute_normalizer (~> 1.2.0.b)
   autoprefixer-rails (~> 9.4)
   aws-sdk-s3 (~> 1.35)
@@ -852,9 +866,6 @@ DEPENDENCIES
   webdrivers (~> 4.0)
   webmock (~> 3.5)
   webpacker (~> 5.0)
-
-RUBY VERSION
-   ruby 2.7.1p83
 
 BUNDLED WITH
    2.1.4
