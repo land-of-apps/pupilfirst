@@ -3,6 +3,7 @@ version: ~> 1.0
 
 services:
 - postgresql
+- nvm
 
 env:
 - SPEC_USER_TIME_ZONE=UTC
