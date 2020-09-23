@@ -4,6 +4,11 @@ version: ~> 1.0
 import:
 - land-of-apps/land-of-apps:travis/ruby-imports.yml
 
+addons:
+  apt:
+    packages:
+    - parallel
+
 services:
 - postgresql
 
@@ -13,9 +18,10 @@ env:
 before_script:
 - nvm install 13
 - nvm use 13
-- bundle exec rake db:schema:load
 - bundle exec rails assets:precompile
 - bundle exec rails assets:clean
 
 script:
-- APPMAP=true bundle exec rspec --format progress
+- "parallel -j3 --lb env DB_NAME_TEST=pupilfirst_test_{%} bundle exec rails db:create db:schema:load ::: seq 1 $(parallel --number-of-cpus)"
+- find spec -name \*_spec.rb | parallel -X --lb -v -j3 env DB_NAME_TEST=pupilfirst_test_{%} APPMAP=true bundle exec rspec -f doc {}
+
