@@ -13,15 +13,54 @@ services:
 - postgresql
 
 env:
-- SPEC_USER_TIME_ZONE=UTC
+- SPEC_USER_TIME_ZONE=UTC DB_NAME_TEST=pupilfirst_test
 
-before_script:
-- nvm install 13
-- nvm use 13
-- bundle exec rails assets:precompile
-- bundle exec rails assets:clean
-
-script:
-- "parallel -j3 --lb env DB_NAME_TEST=pupilfirst_test_{%} bundle exec rails db:create db:schema:load ::: seq 1 $(parallel --number-of-cpus)"
-- find spec -name \*_spec.rb | parallel -X --lb -v -j3 env DB_NAME_TEST=pupilfirst_test_{%} APPMAP=true bundle exec rspec -f doc {}
+jobs:
+  include:
+  - stage: precompile
+    workspaces:
+      create:
+        name: assets
+        paths:
+        - .graphql_ppx_cache/
+        - .merlin
+        - app/javascript/packages
+        - docs/developers/node_modules/
+        - lib/bs/
+        - node_modules/
+        - public/assets/
+        - public/packs-test/
+    before_script:
+    - nvm install 13
+    - nvm use 13
+    script:
+    - bundle exec rails assets:precompile
+    - bundle exec rails assets:clean
+    after_script:
+    - true
+  - stage: test
+    workspaces:
+      create:
+        name: appmaps
+        paths:
+        - tmp/appmap
+      use:
+      - assets
+    before_script:
+    - nvm install 13
+    - nvm use 13
+    script:
+    - bundle exec rails db:create db:schema:load
+    - APPMAP=true bundle exec rspec -f doc || true
+    after_script:
+    - true
+  - stage: upload
+    workspaces:
+      use:
+      - appmaps
+    install:
+    - true
+    script:
+    - true
+    
 
