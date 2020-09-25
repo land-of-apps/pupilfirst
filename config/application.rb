@@ -1,7 +1,6 @@
-require 'appmap/railtie'
-
 require_relative 'boot'
 require 'rails/all'
+require 'appmap/railtie'
 
 if Rails.env.development?
   require 'dotenv'
