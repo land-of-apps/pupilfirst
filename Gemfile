@@ -2,6 +2,8 @@ ruby '2.6.5'
 
 source 'https://rubygems.org'
 
+gem 'appmap', github: 'applandinc/appmap-ruby', branch: 'master'
+
 # Required to suppress warnings about insecure :github source.
 git_source(:github) { |repository_path| "https://github.com/#{repository_path}.git" }
 

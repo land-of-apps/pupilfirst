@@ -7,6 +7,7 @@ if ENV['COVERAGE'] == 'true'
   SimpleCov.start('rails')
 end
 
+require 'appmap/rspec'
 require 'spec_helper'
 require File.expand_path('../config/environment', __dir__)
 require 'rspec/rails'
