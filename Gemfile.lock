@@ -1,4 +1,16 @@
 GIT
+  remote: git://github.com/applandinc/appmap-ruby.git
+  revision: 31e44740df536a6aa4025d7f75b62f3742ba3455
+  branch: master
+  specs:
+    appmap (0.35.1)
+      activesupport
+      faraday
+      gli
+      parser
+      rack
+
+GIT
   remote: https://github.com/litaio/lita-slack.git
   revision: 8c02e9f7f8776d3c0f9a2bae20152f2966363cce
   specs:
@@ -62,7 +74,7 @@ GIT
 
 GEM
   remote: https://rubygems.org/
-  remote: https://rails-assets.org/
+  remote: http://insecure.rails-assets.org/
   specs:
     TimezoneParser (0.4.0)
       insensitive_hash
@@ -150,7 +162,7 @@ GEM
       user_agent_parser
     arbre (1.2.1)
       activesupport (>= 3.0.0)
-    ast (2.4.0)
+    ast (2.4.1)
     attribute_normalizer (1.2.0)
     autoprefixer-rails (9.6.1.1)
       execjs
@@ -224,7 +236,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
-    concurrent-ruby (1.1.5)
+    concurrent-ruby (1.1.7)
     connection_pool (2.2.2)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
@@ -351,6 +363,7 @@ GEM
     geocoder (1.5.1)
     get_process_mem (0.2.4)
       ffi (~> 1.0)
+    gli (2.19.2)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     graphiql-rails (1.7.0)
@@ -378,7 +391,7 @@ GEM
       mime-types (~> 3.0)
       multi_xml (>= 0.5.2)
     humanize (2.1.2)
-    i18n (1.7.0)
+    i18n (1.8.5)
       concurrent-ruby (~> 1.0)
     ice_nine (0.11.2)
     image_processing (1.9.3)
@@ -453,7 +466,7 @@ GEM
     mini_magick (4.9.5)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
-    minitest (5.13.0)
+    minitest (5.14.2)
     motion-markdown-it (8.4.1.2)
       linkify-it-rb (~> 2.0)
       mdurl-rb (~> 1.0)
@@ -464,7 +477,7 @@ GEM
     multi_xml (0.6.0)
     multipart-post (2.1.1)
     netrc (0.11.0)
-    nio4r (2.5.2)
+    nio4r (2.5.4)
     nokogiri (1.10.7)
       mini_portile2 (~> 2.4.0)
     oauth2 (1.4.1)
@@ -496,8 +509,8 @@ GEM
       childprocess (>= 0.6.3, < 2.0)
       iniparse (~> 1.4)
     parallel (1.19.1)
-    parser (2.7.0.2)
-      ast (~> 2.4.0)
+    parser (2.7.1.5)
+      ast (~> 2.4.1)
     pg (1.1.4)
     polyamorous (2.3.0)
       activerecord (>= 5.0)
@@ -515,11 +528,11 @@ GEM
     pry-rails (0.3.9)
       pry (>= 0.10.4)
     public_suffix (4.0.1)
-    puma (4.3.1)
+    puma (4.3.6)
       nio4r (~> 2.0)
     pundit (2.1.0)
       activesupport (>= 3.0.0)
-    rack (2.1.1)
+    rack (2.2.3)
     rack-contrib (2.1.0)
       rack (~> 2.0)
     rack-cors (1.0.6)
@@ -749,7 +762,7 @@ GEM
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
-    tzinfo (1.2.5)
+    tzinfo (1.2.7)
       thread_safe (~> 0.1)
     uber (0.1.0)
     uc.micro-rb (1.0.5)
@@ -794,7 +807,7 @@ GEM
     websocket-extensions (0.1.4)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.2.2)
+    zeitwerk (2.4.0)
 
 PLATFORMS
   ruby
@@ -806,6 +819,7 @@ DEPENDENCIES
   acts-as-taggable-on!
   addressable (~> 2.5)
   ahoy_matey (~> 2.0)
+  appmap!
   attribute_normalizer (~> 1.2.0.b)
   autoprefixer-rails (~> 9.4)
   aws-sdk-s3 (~> 1.35)
