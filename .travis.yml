@@ -13,7 +13,7 @@ services:
 - postgresql
 
 env:
-- SPEC_USER_TIME_ZONE=UTC DB_NAME_TEST=pupilfirst_test
+- SPEC_USER_TIME_ZONE=UTC DB_NAME_TEST=pupilfirst_test JAVASCRIPT_DRIVER=headless_chrome
 
 jobs:
   include:
