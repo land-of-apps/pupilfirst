@@ -13,7 +13,7 @@ services:
 - postgresql
 
 env:
-- SPEC_USER_TIME_ZONE=UTC DB_NAME_TEST=pupilfirst_test
+- SPEC_USER_TIME_ZONE=UTC DB_NAME_TEST=pupilfirst_test JAVASCRIPT_DRIVER=headless_chrome
 
 jobs:
   include:
@@ -31,6 +31,7 @@ jobs:
     - bundle config path vendor/bundle
     - bundle install --jobs 3 --retry 3
     - bundle update appmap
+    - bundle update puma
     before_script:
     - nvm use 12
     script:
