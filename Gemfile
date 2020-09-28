@@ -1,5 +1,7 @@
 ruby '2.7.1'
 
+gem 'appmap', github: 'applandinc/appmap-ruby', branch: 'master'
+
 source 'https://rubygems.org'
 
 # Ruby on Rails. http://rubyonrails.org
