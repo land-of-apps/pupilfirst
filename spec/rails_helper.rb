@@ -1,4 +1,7 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
+
+require 'appmap/rspec'
+
 ENV['RACK_ENV'] = ENV['RAILS_ENV'] ||= 'test'
 
 # Enable coverage checking when requested.
