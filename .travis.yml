@@ -1,0 +1,68 @@
+# Turn on validation, so we can use import:
+version: ~> 1.0
+
+import:
+- land-of-apps/land-of-apps:travis/ruby-imports.yml
+
+addons:
+  apt:
+    packages:
+    - parallel
+
+services:
+- postgresql
+
+env:
+- SPEC_USER_TIME_ZONE=UTC DB_NAME_TEST=pupilfirst_test JAVASCRIPT_DRIVER=headless_chrome
+
+jobs:
+  include:
+  - stage: precompile
+    workspaces:
+      create:
+        name: assets
+        paths:
+        - vendor/bundle
+        - public/assets
+        - public/packs-test
+        - node_modules
+        - app/javascript/packages/*/node_modules
+    install:
+    - bundle config path vendor/bundle
+    - bundle install --jobs 3 --retry 3
+    - bundle update appmap
+    - bundle update puma
+    before_script:
+    - nvm use 12
+    script:
+    - bundle exec rails assets:precompile
+    - bundle exec rails assets:clean
+    after_script:
+    - true
+  - stage: test
+    workspaces:
+      create:
+        name: appmaps
+        paths:
+        - tmp/appmap
+      use:
+      - assets
+    before_script:
+    - nvm use 12
+    script:
+    - bundle exec rails db:create db:schema:load
+    - bundle exec rails assets:precompile
+    - bundle exec rails assets:clean
+    - APPMAP=true bundle exec rspec -f doc || true
+    after_script:
+    - true
+  - stage: upload
+    workspaces:
+      use:
+      - appmaps
+    install:
+    - true
+    script:
+    - true
+    
+
