@@ -1,0 +1,18 @@
+name: pupilfirst
+packages:
+- path: app/admin
+- path: app/constraints
+- path: app/controllers
+- path: app/exceptions
+- path: app/forms
+- path: app/graphql
+- path: app/helpers
+- path: app/jobs
+- path: app/mailers
+- path: app/models
+- path: app/policies
+- path: app/presenters
+- path: app/queries
+- path: app/services
+- path: app/validators
+- path: lib

@@ -1,6 +1,8 @@
-ruby '2.7.1'
+#ruby '2.7.1'
 
 source 'https://rubygems.org'
+
+gem 'appmap', github: 'applandinc/appmap-ruby', branch: 'master'
 
 # Ruby on Rails. http://rubyonrails.org
 gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
@@ -85,7 +87,7 @@ gem 'rodf', '~> 1.1' # ODF generation library for Ruby. https://github.com/westo
 gem 'i18n-js', '~> 3.7' # Provide Rails I18n translations on Javascript.
 
 # Rails assets!
-source 'https://rails-assets.org' do
+source 'http://insecure.rails-assets.org' do
   gem 'rails-assets-bootstrap-tabcollapse', '~> 0.2' # Bootstrap plugin that switches bootstrap tabs component to collapse component for small screens.
   gem 'rails-assets-masonry', '~> 4.1' # Masonry works by placing elements in optimal position based on available vertical space.
   gem 'rails-assets-jquery-stickit', '~> 0.2' # A jQuery plugin provides a sticky header, sidebar or else when scrolling.
